@@ -328,3 +328,47 @@ void Dude::Draw(Graphics& gfx) const
 	gfx.PutPixel(12 + x, 19 + y, 0, 0, 0);
 
 }
+
+void Dude::Update(Keyboard& kbd, float delta)
+{
+	/*switch (kbd.KeyIsPressed())
+	{
+	case VK_LEFT:
+	{
+		mPos.x -= mVel.x * delta;
+	}
+		break;
+	case VK_RIGHT:
+	{
+		mPos.x += mVel.x * delta;
+	}
+		break;
+	case VK_UP:
+	{
+		mPos.y -= mVel.y * delta;
+	}
+		break;
+	case VK_DOWN:
+	{
+		mPos.y += mVel.y * delta;
+	}
+	}*/
+
+	if (kbd.KeyIsPressed(VK_LEFT))
+	{
+		mPos.x -= mVel.x * delta;
+	}
+	else if (kbd.KeyIsPressed(VK_RIGHT))
+	{
+		mPos.x += mVel.x * delta;
+	}
+
+	if (kbd.KeyIsPressed(VK_UP))
+	{
+		mPos.y -= mVel.y * delta;
+	}
+	else if (kbd.KeyIsPressed(VK_DOWN))
+	{
+		mPos.y += mVel.y * delta;
+	}
+}
