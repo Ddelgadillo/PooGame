@@ -24,9 +24,9 @@
 Game::Game( MainWindow& wnd )
 	:
 	wnd( wnd ),
-	gfx( wnd )
-{
-}
+	gfx( wnd ),
+    mDude(Vec2(400.0f, 300.0f), Vec2(0.0f, 0.0f))
+{}
 
 void Game::Go()
 {
