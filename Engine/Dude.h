@@ -8,7 +8,7 @@ class Dude
 public:
 	Dude() = default;
 	Dude(Vec2& pos, Vec2& vel);
-	void Drawe(Graphics& gfx) const;
+	void Draw(Graphics& gfx) const;
 	void Update(Keyboard& kbd, float delta);
 	bool Collision(/*Poo& poo*/) const;
 	bool WallCollision();
