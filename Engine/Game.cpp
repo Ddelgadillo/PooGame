@@ -25,7 +25,8 @@ Game::Game( MainWindow& wnd )
 	:
 	wnd( wnd ),
 	gfx( wnd ),
-    mDude(Vec2(400.0f, 300.0f), Vec2(60.0f, 60.0f))
+    mDude(Vec2(400.0f, 300.0f), Vec2(60.0f, 60.0f)),
+    walls(Vec2(0.0f, 0.0f), Vec2(Graphics::ScreenWidth, Graphics::ScreenHeight))
 {}
 
 void Game::Go()
@@ -41,6 +42,7 @@ void Game::UpdateModel()
     const float dt = delta.Mark();
 
     mDude.Update(wnd.kbd, dt);
+    mDude.WallCollision(walls);
 }
 
 void Game::ComposeFrame()

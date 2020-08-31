@@ -372,3 +372,33 @@ void Dude::Update(Keyboard& kbd, float delta)
 		mPos.y += mVel.y * delta;
 	}
 }
+
+bool Dude::WallCollision(Walls& walls)
+{
+	if (mPos.x < walls.mLeft)
+	{
+		mPos.x = walls.mLeft;
+
+		return true;
+	}
+	
+	if (mPos.x + mWidth >= walls.mRight)
+	{
+		mPos.x = walls.mRight - mWidth;
+		return true;
+	}
+
+	if (mPos.y < walls.mTop)
+	{
+		mPos.y = walls.mTop;
+		return true;
+	}
+
+	if (mPos.y + mHeight >= walls.mBottom)
+	{
+		mPos.y = walls.mBottom - mHeight;
+		return true;
+	}
+
+	return false;
+}
