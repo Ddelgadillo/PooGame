@@ -2,6 +2,7 @@
 #include "Graphics.h"
 #include "Vec2.h"
 #include "Keyboard.h"
+#include "Walls.h"
 
 class Dude
 {
@@ -11,7 +12,7 @@ public:
 	void Draw(Graphics& gfx) const;
 	void Update(Keyboard& kbd, float delta);
 	bool Collision(/*Poo& poo*/) const;
-	bool WallCollision();
+	bool WallCollision(Walls& walls);
 private:
 	Vec2 mPos; //Position
 	Vec2 mVel; //Velocity
