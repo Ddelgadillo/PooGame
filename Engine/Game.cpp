@@ -26,7 +26,8 @@ Game::Game( MainWindow& wnd )
 	wnd( wnd ),
 	gfx( wnd ),
     mDude(Vec2(400.0f, 300.0f), Vec2(60.0f, 60.0f)),
-    walls(Vec2(0.0f, 0.0f), Vec2(Graphics::ScreenWidth, Graphics::ScreenHeight))
+    walls(Vec2(0.0f, 0.0f), Vec2(Graphics::ScreenWidth, Graphics::ScreenHeight)),
+    poos(Vec2(100.0f, 100.0f), Vec2(0.0f, 0.0f))
 {}
 
 void Game::Go()
@@ -48,4 +49,5 @@ void Game::UpdateModel()
 void Game::ComposeFrame()
 {
     mDude.Draw(gfx);
+    poos.Draw(gfx);
 }
