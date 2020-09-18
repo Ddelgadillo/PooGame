@@ -26,6 +26,7 @@
 #include "Dude.h"
 #include "FrameTimer.h"
 #include "Walls.h"
+#include "Poo.h"
 
 class Game
 {
@@ -49,4 +50,5 @@ private:
     FrameTimer delta;
     Dude mDude;
     Walls walls;
+    Poo poos;
 };
