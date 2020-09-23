@@ -244,3 +244,45 @@ void Poo::Draw(Graphics& gfx) const
 	gfx.PutPixel(6 + x, 23 + y, 51, 28, 0);
 
 }
+
+void Poo::Update(float delta)
+{
+	mPos += mVel * delta;
+}
+
+bool Poo::WallCollision(Walls& walls)
+{
+	if (mPos.x < walls.mLeft)
+	{
+		mPos.x = walls.mLeft;
+		mVel.x = -mVel.x;
+
+		return true;
+	}
+
+	if (mPos.x + mWidth > walls.mRight)
+	{
+		mPos.x = walls.mRight - mWidth;
+		mVel.x = -mVel.x;
+
+		return true;
+	}
+
+	if (mPos.y < walls.mTop)
+	{
+		mPos.y = walls.mTop;
+		mVel.y = -mVel.y;
+
+		return true;
+	}
+
+	if (mPos.y + mHeight >= walls.mBottom)
+	{
+		mPos.y = walls.mBottom - mHeight;
+		mVel.y = -mVel.y;
+
+		return true;
+	}
+
+	return false;
+}
