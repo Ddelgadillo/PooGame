@@ -379,3 +379,8 @@ bool Dude::WallCollision(Walls& walls)
 
 	return false;
 }
+
+Vec2 Dude::GetPosition() const
+{
+	return mPos;
+}
