@@ -27,6 +27,7 @@
 #include "FrameTimer.h"
 #include "Walls.h"
 #include "Poo.h"
+#include <random>
 
 class Game
 {
@@ -48,7 +49,13 @@ private:
 	/*  User Variables              */
 	/********************************/
     FrameTimer delta;
+	
     Dude mDude;
     Walls walls;
-    Poo poos;
+	static constexpr int numOfPoos = 5;
+    Poo poos[numOfPoos];
+	std::random_device rd;
+	std::mt19937 rng;
+	std::uniform_int_distribution<int> xDist;
+	std::uniform_int_distribution<int> yDist;
 };
