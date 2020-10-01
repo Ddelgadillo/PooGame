@@ -27,6 +27,7 @@ Game::Game(MainWindow& wnd)
     gfx(wnd),
     mDude(Vec2(400.0f, 300.0f), Vec2(60.0f, 60.0f)),
     walls(Vec2(0.0f, 0.0f), Vec2(Graphics::ScreenWidth, Graphics::ScreenHeight)),
+    mTPaper(Vec2(300.0f, 200.0f)),
     mGameOver(false),
     rng(rd()),
     xDist(walls.mLeft, walls.mRight),
@@ -68,16 +69,12 @@ void Game::UpdateModel()
             }
         }
     }
-
-    for (Poo& poo : poos)
-    {
-        
-    }
 }
 
 void Game::ComposeFrame()
 {
     mDude.Draw(gfx);
+    mTPaper.Draw(gfx);
 
     for (Poo& poo : poos)
     {

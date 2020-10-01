@@ -27,6 +27,7 @@
 #include "FrameTimer.h"
 #include "Walls.h"
 #include "Poo.h"
+#include "ToiletPaper.h"
 #include <random>
 
 class Game
@@ -53,6 +54,7 @@ private:
     Walls walls;
 	static constexpr int numOfPoos = 5;
     Poo poos[numOfPoos];
+	ToiletPaper mTPaper;
 	bool mGameOver;
 	std::random_device rd;
 	std::mt19937 rng;
