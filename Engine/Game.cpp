@@ -27,6 +27,7 @@ Game::Game(MainWindow& wnd)
     gfx(wnd),
     mDude(Vec2(400.0f, 300.0f), Vec2(60.0f, 60.0f)),
     walls(Vec2(0.0f, 0.0f), Vec2(Graphics::ScreenWidth, Graphics::ScreenHeight)),
+    mGameOver(false),
     rng(rd()),
     xDist(walls.mLeft, walls.mRight),
     yDist(walls.mTop, walls.mBottom),
@@ -49,15 +50,28 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
-    const float dt = delta.Mark();
+    if (!mGameOver)
+    {
+        const float dt = delta.Mark();
 
-    mDude.Update(wnd.kbd, dt);
-    mDude.WallCollision(walls);
+        mDude.Update(wnd.kbd, dt);
+        mDude.WallCollision(walls);
+
+        for (Poo& poo : poos)
+        {
+            poo.Update(dt, walls);
+            poo.SetIsEaten(poo.DudeCollision(mDude));
+
+            if (poo.DudeCollision(mDude))
+            {
+                mGameOver = true;
+            }
+        }
+    }
 
     for (Poo& poo : poos)
     {
-        poo.Update(dt, walls);
-        poo.SetIsEaten(poo.DudeCollision(mDude));
+        
     }
 }
 
