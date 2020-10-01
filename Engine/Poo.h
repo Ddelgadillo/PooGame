@@ -9,6 +9,7 @@ class Poo
 public:
 	Poo() = default;
 	Poo(Vec2& pos, Vec2& vel);
+	void Init(Vec2& pos, Vec2& vel);
 	void Draw(Graphics& gfx) const;
 	void Update(float delta, Walls& wall);
 	bool WallCollision(Walls& walls);

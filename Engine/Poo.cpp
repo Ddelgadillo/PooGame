@@ -7,6 +7,13 @@ Poo::Poo(Vec2& pos, Vec2& vel)
 	mIsEaten(false)
 {}
 
+void Poo::Init(Vec2& pos, Vec2& vel)
+{
+	mPos = pos;
+	mVel = vel;
+	mIsEaten = false;
+}
+
 void Poo::Draw(Graphics& gfx) const
 {
 	float x = int(mPos.x);
