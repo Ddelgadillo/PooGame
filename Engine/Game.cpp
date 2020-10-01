@@ -21,20 +21,21 @@
 #include "MainWindow.h"
 #include "Game.h"
 
-Game::Game( MainWindow& wnd )
-	:
-	wnd( wnd ),
-	gfx( wnd ),
+Game::Game(MainWindow& wnd)
+    :
+    wnd(wnd),
+    gfx(wnd),
     mDude(Vec2(400.0f, 300.0f), Vec2(60.0f, 60.0f)),
     walls(Vec2(0.0f, 0.0f), Vec2(Graphics::ScreenWidth, Graphics::ScreenHeight)),
     rng(rd()),
-    xDist(0, 770),
-    yDist(0, 570)
-   // poos(Vec2(200.0f, 200.0f), Vec2(0.0f, 0.0f))
+    xDist(walls.mLeft, walls.mRight),
+    yDist(walls.mTop, walls.mBottom),
+    xVel(-1, 1),
+    yVel(-1, 1)
 {
     for (Poo& poo : poos)
     {
-        poo.Init(Vec2(xDist(rng), yDist(rng)), Vec2(1.0f, 1.0f));
+        poo.Init(Vec2(xDist(rng), yDist(rng)), Vec2(xVel(rng), yVel(rng)));
     }
 }
 

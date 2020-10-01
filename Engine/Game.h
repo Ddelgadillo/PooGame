@@ -49,7 +49,6 @@ private:
 	/*  User Variables              */
 	/********************************/
     FrameTimer delta;
-	
     Dude mDude;
     Walls walls;
 	static constexpr int numOfPoos = 5;
@@ -58,4 +57,6 @@ private:
 	std::mt19937 rng;
 	std::uniform_int_distribution<int> xDist;
 	std::uniform_int_distribution<int> yDist;
+	std::uniform_int_distribution<int> xVel;
+	std::uniform_int_distribution<int> yVel;
 };

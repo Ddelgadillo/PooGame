@@ -12,6 +12,12 @@ void Poo::Init(Vec2& pos, Vec2& vel)
 	mPos = pos;
 	mVel = vel;
 	mIsEaten = false;
+
+	if (vel.x == 0 || vel.y == 0)
+	{
+		vel.x++;
+		vel.y++;
+	}
 }
 
 void Poo::Draw(Graphics& gfx) const
