@@ -632,3 +632,19 @@ void ToiletPaper::Draw(Graphics& gfx)
 	gfx.PutPixel(29 + x, 18 + y, 31, 31, 31);
 	gfx.PutPixel(30 + x, 18 + y, 61, 61, 61);
 }
+
+bool ToiletPaper::DudeCollision(const Dude& dude) const
+{
+	return dude.GetPosition().x <= mPos.x + mWidth && dude.GetPosition().x + Dude::mWidth >= mPos.x &&
+		dude.GetPosition().y <= mPos.y + mHeight && dude.GetPosition().y + Dude::mHeight >= mPos.y;;
+}
+
+void ToiletPaper::SetIsEaten(bool isEaten)
+{
+	mIsEaten = isEaten;
+}
+
+bool ToiletPaper::GetIsEaten() const
+{
+	return mIsEaten;
+}
