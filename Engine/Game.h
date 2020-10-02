@@ -52,9 +52,6 @@ private:
     FrameTimer delta;
     Dude mDude;
     Walls walls;
-	static constexpr int numOfPoos = 5;
-    Poo poos[numOfPoos];
-	ToiletPaper mTPaper;
 	bool mGameOver;
 	std::random_device rd;
 	std::mt19937 rng;
@@ -62,4 +59,7 @@ private:
 	std::uniform_int_distribution<int> yDist;
 	std::uniform_int_distribution<int> xVel;
 	std::uniform_int_distribution<int> yVel;
+	static constexpr int numOfPoos = 5;
+	Poo poos[numOfPoos];
+	ToiletPaper mTPaper;
 };
