@@ -644,6 +644,11 @@ void ToiletPaper::SetIsEaten(bool isEaten)
 	mIsEaten = isEaten;
 }
 
+void ToiletPaper::SetPos(Vec2& pos)
+{
+	mPos = pos;
+}
+
 bool ToiletPaper::GetIsEaten() const
 {
 	return mIsEaten;

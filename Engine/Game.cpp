@@ -33,7 +33,7 @@ Game::Game(MainWindow& wnd)
     yDist(walls.mTop, walls.mBottom),
     xVel(-1, 1),
     yVel(-1, 1),
-    mTPaper(Vec2(300.0f, 200.0f))
+    mTPaper(Vec2(xDist(rng), yDist(rng)))
 {
     for (Poo& poo : poos)
     {
@@ -61,6 +61,7 @@ void Game::UpdateModel()
         if (mTPaper.DudeCollision(mDude))
         {
             mTPaper.SetIsEaten(true);
+            mTPaper.SetPos(Vec2(xDist(rng), yDist(rng)));
         }
 
         for (Poo& poo : poos)
@@ -80,10 +81,7 @@ void Game::ComposeFrame()
 {
     mDude.Draw(gfx);
 
-    if (!mTPaper.GetIsEaten())
-    {
-        mTPaper.Draw(gfx);
-    }
+    mTPaper.Draw(gfx);
 
     for (Poo& poo : poos)
     {
