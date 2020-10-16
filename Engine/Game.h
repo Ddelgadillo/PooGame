@@ -47,7 +47,8 @@ private:
 	MainWindow& wnd;
 	Graphics gfx;
 	/********************************/
-	/*  User Variables              */
+	/*  User Variables              */ 
+
 	/********************************/
     FrameTimer delta;
     Dude mDude;

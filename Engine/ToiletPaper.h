@@ -11,6 +11,7 @@ public:
 	void Draw(Graphics& gfx);
 	bool DudeCollision(const Dude& dude) const;
 	void SetIsEaten(bool isEaten);
+	void SetPos(Vec2& pos);
 	bool GetIsEaten() const;
 private:
 	Vec2 mPos;
